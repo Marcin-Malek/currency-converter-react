@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background-image: url("./images/bg_img.png");
+  background-image: url("/public/bg_img.png");
   background-position: center 100px;
   background-size: cover;
   font-family: 'Lato', sans-serif;
