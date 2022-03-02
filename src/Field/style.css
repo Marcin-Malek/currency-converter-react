@@ -1,0 +1,19 @@
+.label {
+    font-size: small;
+    margin: 4px;
+}
+
+.input {
+    display: block;
+    width: 60%;
+    min-width: 150px;
+    flex-basis: 30px;
+    border: 1px solid #1a28ad;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.empty {
+    border: 1px solid red;
+    outline: 1px solid red;
+}
