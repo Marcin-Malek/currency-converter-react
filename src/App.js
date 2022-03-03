@@ -43,7 +43,7 @@ function App() {
     if (amount !== "") {
       setResult(
         {
-          from: `${amount} PLN`,
+          from: `${Number(amount)} PLN`,
           to: currency.signature,
           value: Number(amount) / currency.rate
         }
