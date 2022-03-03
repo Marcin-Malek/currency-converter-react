@@ -27,7 +27,7 @@ function App() {
     {
       name: "Euro",
       signature: "EUR",
-      rate: 4.5
+      rate: 4.75
     });
   const [result, setResult] = useState(
     {
