@@ -4,13 +4,13 @@ const Field = ({ type, label, innerRef, currencies, amount, inputHandler, select
     if (type === "input") {
         return (
             <>
-                <label className="label">{label}:</label>
+                <label className="field__label">{label}:</label>
                 <input
                     value={amount}
                     ref={innerRef}
                     onChange={inputHandler}
                     type="number"
-                    className="input"
+                    className="field__input"
                     min="0"
                     step="any"
                     pattern="[0-9]+([,\.][0-9]+)?"
@@ -20,10 +20,10 @@ const Field = ({ type, label, innerRef, currencies, amount, inputHandler, select
     }
     return (
         <>
-            <label className="label">{label}:</label>
+            <label className="field__label">{label}:</label>
             <select
                 onChange={selectHandler}
-                className="input"
+                className="field__input"
             >
                 {currencies.map(currency => (
                     <option key={currency.signature}>{currency.name}</option>

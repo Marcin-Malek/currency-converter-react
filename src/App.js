@@ -38,10 +38,10 @@ function App() {
           calculatedAmount: Number(amount) / currency.rate
         }
       );
-      inputRef.current.className = "input"
+      inputRef.current.className = "field__input"
     } else {
       inputRef.current.focus();
-      inputRef.current.className = "input empty"
+      inputRef.current.className = "field__input field__input--empty"
     }
   }
 

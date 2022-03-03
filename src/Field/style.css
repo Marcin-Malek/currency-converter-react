@@ -1,9 +1,9 @@
-.label {
+.field__label {
     font-size: small;
     margin: 4px;
 }
 
-.input {
+.field__input {
     display: block;
     width: 60%;
     min-width: 150px;
@@ -13,7 +13,7 @@
     margin-bottom: 10px;
 }
 
-.empty {
+.field__input--empty {
     border: 1px solid red;
     outline: 1px solid red;
 }
