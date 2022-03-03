@@ -1,8 +1,16 @@
 import "./style.css";
 
 const Statement = ({ result }) => {
-    if (result.value) {
-        return <p className="statement">{result.from} = <strong>{result.value.toFixed(2)} {result.to}</strong></p>;
+    if (!!result) {
+        return (
+            <p className="statement">
+                {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;=
+                {" "}
+                <strong>
+                    {result.calculatedAmount.toFixed(2)}&nbsp;{result.currency}
+                </strong>
+            </p>
+        );
     }
     return null;
 }

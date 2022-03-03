@@ -29,12 +29,7 @@ function App() {
       signature: "EUR",
       rate: 4.75
     });
-  const [result, setResult] = useState(
-    {
-      from: "PLN",
-      to: "EUR",
-      value: undefined
-    });
+  const [result, setResult] = useState();
 
   const inputRef = useRef();
 
@@ -43,9 +38,9 @@ function App() {
     if (amount !== "") {
       setResult(
         {
-          from: `${Number(amount)} PLN`,
-          to: currency.signature,
-          value: Number(amount) / currency.rate
+          sourceAmount: Number(amount),
+          currency: currency.signature,
+          calculatedAmount: Number(amount) / currency.rate
         }
       );
       inputRef.current.className = "input"
