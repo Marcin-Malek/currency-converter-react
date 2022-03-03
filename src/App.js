@@ -23,12 +23,7 @@ const currencies = [
 
 function App() {
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState(
-    {
-      name: "Euro",
-      signature: "EUR",
-      rate: 4.75
-    });
+  const [currency, setCurrency] = useState(currencies[0]);
   const [result, setResult] = useState();
 
   const inputRef = useRef();
