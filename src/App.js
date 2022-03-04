@@ -1,25 +1,6 @@
 import Form from "./Form";
-import Field from "./Field";
-import Button from "./Button";
-import Statement from "./Statement";
 import { useRef, useState } from "react";
-
-const currencies = [
-  {
-    name: "Euro",
-    signature: "EUR",
-    rate: 4.75
-  },
-  {
-    name: "Dolar amerykański",
-    signature: "USD",
-    rate: 4.27
-  },
-  {
-    name: "Funt szterling",
-    signature: "GBP",
-    rate: 5.71
-  }];
+import { currencies } from "./currencies"
 
 function App() {
   const [amount, setAmount] = useState("");
@@ -56,10 +37,11 @@ function App() {
   return (
     <Form
       title="Kalkulator wymiany walut"
-      amountField={<Field type="input" label="Kwota wpłacona" innerRef={inputRef} amount={amount} inputHandler={inputHandler} />}
-      currencyField={<Field type="select" label="Waluta" currencies={currencies} selectHandler={selectHandler} />}
-      button={<Button title="Przelicz" />}
-      statement={<Statement result={result} />}
+      result={result}
+      amount={amount}
+      inputRef={inputRef}
+      inputHandler={inputHandler}
+      selectHandler={selectHandler}
       onFormSubmit={onFormSubmit}
     />
   );

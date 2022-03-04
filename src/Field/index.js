@@ -1,6 +1,7 @@
 import "./style.css";
+import { currencies } from "../currencies";
 
-const Field = ({ type, label, innerRef, currencies, amount, inputHandler, selectHandler }) => {
+const Field = ({ type, label, innerRef, amount, inputHandler, selectHandler }) => {
     if (type === "input") {
         return (
             <>
