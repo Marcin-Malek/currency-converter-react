@@ -50,7 +50,7 @@ function App() {
   }
 
   const selectHandler = ({ target }) => {
-    setCurrency(currencies.find(currency => currency.name === target.value))
+    setCurrency(currencies.find(currency => currency.name === target.value));
   }
 
   return (
