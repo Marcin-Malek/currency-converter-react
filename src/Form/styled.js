@@ -1,12 +1,14 @@
-.form {
+import styled from "styled-components";
+
+export const StyledForm = styled.form`
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     max-width: 600px;
     margin: auto;
-}
+`;
 
-.form__fieldset {
+export const Fieldset = styled.fieldset`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,15 +16,15 @@
     background-color: hsl(226, 21%, 90%);
     border: 3px solid #1a28ad;
     border-radius: 20px;
-}
+`;
 
-.form__header {
+export const Header = styled.h1`
     font-size: 20pt;
     text-align: center;
     color: #1a28ad;
-}
+`;
 
-.form__button {
+export const Button = styled.button`
     width: 90%;
     min-width: 150px;
     flex-basis: 30px;
@@ -33,13 +35,13 @@
     box-shadow: 1px 0.5px 2px black;
     color: white;   
     transition: box-shadow 100ms, background-color 1s, transform 1s;
-}
 
-.form__button:hover {
-    transform: scale(1.1);
-    background-color: hsl(234, 74%, 50%);
-}
+    &:hover {
+        transform: scale(1.1);
+        background-color: hsl(234, 74%, 50%);
+    }
 
-.form__button:active {
-    box-shadow: 0px 0px 2px black;
-}
+    &:active {
+        box-shadow: 0px 0px 2px black;
+    }
+`;

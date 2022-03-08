@@ -1,13 +1,13 @@
-import "./style.css";
 import Field from "../Field";
 import Statement from "../Statement";
 import Clock from "../Clock";
+import { StyledForm, Fieldset, Header, Button } from "./styled";
 
 const Form = ({ title, result, amount, contentPassed, inputRef, onFormSubmit, inputHandler, selectHandler }) => (
-    <form onSubmit={onFormSubmit} className="form">
-        <fieldset className="form__fieldset">
+    <StyledForm onSubmit={onFormSubmit}>
+        <Fieldset>
             <Clock />
-            <h1 className="form__header">{title}</h1>
+            <Header>{title}</Header>
             <Field
                 type="input"
                 label="Kwota wpłacona (PLN)"
@@ -21,10 +21,10 @@ const Form = ({ title, result, amount, contentPassed, inputRef, onFormSubmit, in
                 label="Waluta"
                 selectHandler={selectHandler}
             />
-            <button className="form__button">{title}</button>
+            <Button>{title}</Button>
             <Statement result={result} />
-        </fieldset>
-    </form>
+        </Fieldset>
+    </StyledForm>
 );
 
 export default Form;
