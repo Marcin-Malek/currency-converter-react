@@ -8,7 +8,7 @@ const Form = ({ title, result, amount, inputRef, onFormSubmit, inputHandler, sel
         <fieldset className="form__fieldset">
             <Clock />
             <h1 className="form__header">{title}</h1>
-            <Field type="input" label="Kwota wpłacona" innerRef={inputRef} amount={amount} inputHandler={inputHandler} />
+            <Field type="input" label="Kwota wpłacona(PLN)" innerRef={inputRef} amount={amount} inputHandler={inputHandler} placeholder="Wpisz kwotę w PLN" />
             <Field type="select" label="Waluta" selectHandler={selectHandler} />
             <button className="form__button">{title}</button>
             <Statement result={result} />
