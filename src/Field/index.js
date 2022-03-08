@@ -12,6 +12,7 @@ const Field = ({ type, label, innerRef, amount, inputHandler, selectHandler }) =
                     onChange={inputHandler}
                     type="number"
                     className="field__input"
+                    placeholder="Wpisz kwotę w PLN"
                     min="0"
                     step="any"
                     pattern="[0-9]+([,\.][0-9]+)?"
