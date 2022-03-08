@@ -1,8 +1,8 @@
 import { currencies } from "../currencies";
 import { Label, Input } from "./styled";
 
-const Field = ({ type, label, contentPassed, innerRef, amount, inputHandler, selectHandler }) => {
-    if (type === "input") {
+const Field = ({ tagType, label, contentPassed, innerRef, amount, inputHandler, selectHandler }) => {
+    if (tagType === "input") {
         return (
             <>
                 <Label>{label}:</Label>
@@ -11,6 +11,7 @@ const Field = ({ type, label, contentPassed, innerRef, amount, inputHandler, sel
                     ref={innerRef}
                     contentPassed={contentPassed}
                     onChange={inputHandler}
+                    tagType={tagType}
                     type="number"
                     placeholder="Wpisz kwotę w PLN"
                     min="0"
@@ -25,6 +26,7 @@ const Field = ({ type, label, contentPassed, innerRef, amount, inputHandler, sel
             <Label>{label}:</Label>
             <Input
                 as="select"
+                tagType={tagType}
                 onChange={selectHandler}
             >
                 {currencies.map(currency => (

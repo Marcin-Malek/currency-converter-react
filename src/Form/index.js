@@ -9,7 +9,7 @@ const Form = ({ title, result, amount, contentPassed, inputRef, onFormSubmit, in
             <Clock />
             <Header>{title}</Header>
             <Field
-                type="input"
+                tagType="input"
                 label="Kwota wpłacona (PLN)"
                 contentPassed={contentPassed}
                 innerRef={inputRef}
@@ -17,7 +17,7 @@ const Form = ({ title, result, amount, contentPassed, inputRef, onFormSubmit, in
                 inputHandler={inputHandler}
             />
             <Field
-                type="select"
+                tagType="select"
                 label="Waluta"
                 selectHandler={selectHandler}
             />
