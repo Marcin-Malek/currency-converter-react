@@ -1,5 +1,5 @@
 import { useCurrentDate } from "../useCurrentDate";
-import "./style.css";
+import { StyledClock } from "./styled"
 
 const formatDate = (date) => date.toLocaleString(undefined, {
     weekday: "long",
@@ -14,9 +14,9 @@ const Clock = () => {
     const date = useCurrentDate();
 
     return (
-        <p className="clock">Dzisiaj jest
-        {" "} 
-        {formatDate(date)}</p>
+        <StyledClock>
+            Dzisiaj jest {" "} {formatDate(date)}
+        </StyledClock>
     )
 };
 
