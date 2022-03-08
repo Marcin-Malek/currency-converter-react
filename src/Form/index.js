@@ -21,7 +21,7 @@ const Form = ({ title, result, amount, contentPassed, inputRef, onFormSubmit, in
                 label="Waluta"
                 selectHandler={selectHandler}
             />
-            <Button>{title}</Button>
+            <Button>Przelicz</Button>
             <Statement result={result} />
         </Fieldset>
     </StyledForm>
