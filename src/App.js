@@ -6,6 +6,7 @@ function App() {
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState(currencies[0]);
   const [result, setResult] = useState();
+  const [contentPassed, setContentPassed] = useState(true);
 
   const inputRef = useRef();
 
@@ -19,11 +20,11 @@ function App() {
           calculatedAmount: Number(amount) / currency.rate
         }
       );
-      inputRef.current.className = "field__input"
+      setContentPassed(true);
     } else {
-      inputRef.current.focus();
-      inputRef.current.className = "field__input field__input--empty"
+      setContentPassed(false);
     }
+    inputRef.current.focus();
   }
 
   const inputHandler = ({ target }) => {
@@ -39,6 +40,7 @@ function App() {
       title="Kalkulator wymiany walut"
       result={result}
       amount={amount}
+      contentPassed={contentPassed}
       inputRef={inputRef}
       inputHandler={inputHandler}
       selectHandler={selectHandler}

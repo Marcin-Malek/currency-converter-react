@@ -1,17 +1,17 @@
-import "./style.css";
 import { currencies } from "../currencies";
+import { Label, Input } from "./styled";
 
-const Field = ({ type, label, innerRef, amount, inputHandler, selectHandler }) => {
+const Field = ({ type, label, contentPassed, innerRef, amount, inputHandler, selectHandler }) => {
     if (type === "input") {
         return (
             <>
-                <label className="field__label">{label}:</label>
-                <input
+                <Label>{label}:</Label>
+                <Input
                     value={amount}
                     ref={innerRef}
+                    contentPassed={contentPassed}
                     onChange={inputHandler}
                     type="number"
-                    className="field__input"
                     placeholder="Wpisz kwotę w PLN"
                     min="0"
                     step="any"
@@ -22,17 +22,17 @@ const Field = ({ type, label, innerRef, amount, inputHandler, selectHandler }) =
     }
     return (
         <>
-            <label className="field__label">{label}:</label>
-            <select
+            <Label>{label}:</Label>
+            <Input
+                as="select"
                 onChange={selectHandler}
-                className="field__input"
             >
                 {currencies.map(currency => (
                     <option key={currency.signature}>{currency.name}</option>
                 ))}
-            </select>
+            </Input>
         </>
     );
-}
+};
 
 export default Field;

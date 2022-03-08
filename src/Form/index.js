@@ -3,7 +3,7 @@ import Field from "../Field";
 import Statement from "../Statement";
 import Clock from "../Clock";
 
-const Form = ({ title, result, amount, inputRef, onFormSubmit, inputHandler, selectHandler }) => (
+const Form = ({ title, result, amount, contentPassed, inputRef, onFormSubmit, inputHandler, selectHandler }) => (
     <form onSubmit={onFormSubmit} className="form">
         <fieldset className="form__fieldset">
             <Clock />
@@ -11,6 +11,7 @@ const Form = ({ title, result, amount, inputRef, onFormSubmit, inputHandler, sel
             <Field
                 type="input"
                 label="Kwota wpłacona (PLN)"
+                contentPassed={contentPassed}
                 innerRef={inputRef}
                 amount={amount}
                 inputHandler={inputHandler}
