@@ -1,6 +1,6 @@
 import Form from "./Form";
 import { useRef, useState } from "react";
-import { currencies } from "./currencies"
+import { currencies } from "./currencies";
 
 function App() {
   const [amount, setAmount] = useState("");
@@ -47,6 +47,6 @@ function App() {
       onFormSubmit={onFormSubmit}
     />
   );
-}
+};
 
 export default App;

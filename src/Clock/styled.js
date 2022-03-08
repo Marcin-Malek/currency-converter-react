@@ -5,4 +5,4 @@ export const StyledClock = styled.p`
     font-size: small;
     align-self: flex-end;
     margin: 20px 30px 0 0;
-`
+`;
