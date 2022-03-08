@@ -1,14 +1,14 @@
-import "./style.css";
+import { StyledStatement } from "./styled";
 
 const Statement = ({ result }) => (
     !!result && (
-        <p className="statement">
+        <StyledStatement>
             {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;=
             {" "}
             <strong>
                 {result.calculatedAmount.toFixed(2)}&nbsp;{result.currency}
             </strong>
-        </p>
+        </StyledStatement>
     )
 );
 
