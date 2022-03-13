@@ -13,7 +13,7 @@ function App() {
   
   const currenciesData = useCurrenciesData();
   console.log(currenciesData);
-  
+
   const onFormSubmit = (event) => {
     event.preventDefault();
     if (amount !== "") {
