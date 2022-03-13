@@ -1,17 +1,17 @@
 import Form from "./Form";
 import { useRef, useState } from "react";
-import { currencies } from "./currencies";
 import { useCurrenciesData } from "./useCurrenciesData";
 
 function App() {
+  const currenciesData = useCurrenciesData();
+  const { rates }  = currenciesData;
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState(currencies[0]);
+  const [currency, setCurrency] = useState(Object.keys(rates)[0]);
   const [result, setResult] = useState();
   const [contentPassed, setContentPassed] = useState(true);
   
   const inputRef = useRef();
   
-  const currenciesData = useCurrenciesData();
   console.log(currenciesData);
 
   const onFormSubmit = (event) => {
@@ -36,7 +36,7 @@ function App() {
   }
 
   const selectHandler = ({ target }) => {
-    setCurrency(currencies.find(currency => currency.name === target.value));
+    setCurrency(Object.keys(rates).find(rate => rate === target.value));
   }
 
   return (
