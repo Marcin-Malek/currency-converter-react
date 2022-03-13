@@ -11,17 +11,16 @@ function App() {
   const [contentPassed, setContentPassed] = useState(true);
   
   const inputRef = useRef();
-  
-  console.log(currenciesData);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    const rateIndex = Object.keys(rates).indexOf(currency);
     if (amount !== "") {
       setResult(
         {
           sourceAmount: Number(amount),
-          currency: currency.signature,
-          calculatedAmount: Number(amount) / currency.rate
+          currency: currency,
+          calculatedAmount: Number(amount) / Object.values(rates)[rateIndex]
         }
       );
       setContentPassed(true);
