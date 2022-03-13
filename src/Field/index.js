@@ -3,7 +3,7 @@ import { useCurrenciesData } from "../useCurrenciesData";
 
 const Field = ({ tagType, label, contentPassed, innerRef, amount, inputHandler, selectHandler }) => {
     const currenciesData = useCurrenciesData();
-    const { rates } = currenciesData;
+    const { rates: currencies } = currenciesData;
     if (tagType === "input") {
         return (
             <>
@@ -31,8 +31,8 @@ const Field = ({ tagType, label, contentPassed, innerRef, amount, inputHandler, 
                 tagType={tagType}
                 onChange={selectHandler}
             >
-                {Object.keys(rates).map(rate => (
-                    <option key={rate}>{rate}</option>
+                {Object.keys(currencies).map(currency => (
+                    <option key={currency}>{currency}</option>
                 ))}
             </Input>
         </>
