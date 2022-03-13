@@ -1,9 +1,10 @@
 import Field from "../Field";
 import Statement from "../Statement";
 import Clock from "../Clock";
+import Info from "../Info";
 import { StyledForm, Fieldset, Header, Button } from "./styled";
 
-const Form = ({ title, result, amount, contentPassed, inputRef, onFormSubmit, inputHandler, selectHandler }) => (
+const Form = ({ title, result, amount, date, contentPassed, inputRef, onFormSubmit, inputHandler, selectHandler }) => (
     <StyledForm onSubmit={onFormSubmit}>
         <Fieldset>
             <Clock />
@@ -22,6 +23,7 @@ const Form = ({ title, result, amount, contentPassed, inputRef, onFormSubmit, in
                 selectHandler={selectHandler}
             />
             <Button>Przelicz</Button>
+            <Info date={date}/>
             <Statement result={result} />
         </Fieldset>
     </StyledForm>

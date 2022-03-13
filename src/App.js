@@ -4,7 +4,7 @@ import { useCurrenciesData } from "./useCurrenciesData";
 
 function App() {
   const currenciesData = useCurrenciesData();
-  const { rates: currencies } = currenciesData;
+  const { rates: currencies, date } = currenciesData;
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState(Object.keys(currencies)[0]);
   const [result, setResult] = useState();
@@ -43,6 +43,7 @@ function App() {
       title="Kalkulator wymiany walut"
       result={result}
       amount={amount}
+      date={date}
       contentPassed={contentPassed}
       inputRef={inputRef}
       inputHandler={inputHandler}
