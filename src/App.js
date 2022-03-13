@@ -1,15 +1,19 @@
 import Form from "./Form";
 import { useRef, useState } from "react";
 import { currencies } from "./currencies";
+import { useCurrenciesData } from "./useCurrenciesData";
 
 function App() {
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState(currencies[0]);
   const [result, setResult] = useState();
   const [contentPassed, setContentPassed] = useState(true);
-
+  
   const inputRef = useRef();
-
+  
+  const currenciesData = useCurrenciesData();
+  console.log(currenciesData);
+  
   const onFormSubmit = (event) => {
     event.preventDefault();
     if (amount !== "") {
