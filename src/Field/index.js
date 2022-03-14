@@ -16,6 +16,7 @@ const Field = ({ tagType, label, contentPassed, innerRef, amount, currencies, in
                     min="0"
                     step="any"
                     pattern="[0-9]+([,\.][0-9]+)?"
+                    autoFocus
                 />
             </>
         );
