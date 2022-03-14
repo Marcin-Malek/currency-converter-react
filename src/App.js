@@ -17,12 +17,11 @@ function App() {
   const onFormSubmit = (event) => {
     event.preventDefault();
     if (amount !== "") {
-      const currencyIndex = Object.keys(currencies).indexOf(currency);
       setResult(
         {
           sourceAmount: Number(amount),
           currency,
-          calculatedAmount: Number(amount) * Object.values(currencies)[currencyIndex]
+          calculatedAmount: Number(amount) * currencies[currency]
         }
       );
       setContentPassed(true);
