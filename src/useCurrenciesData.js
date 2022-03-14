@@ -1,27 +1,32 @@
 import { useEffect, useState } from "react";
 
-export const useCurrenciesData = () => {
-  const [currenciesData, setCurrenciesData] = useState(
-    !!localStorage.getItem("currenciesData") ?
-      JSON.parse(localStorage.getItem("currenciesData"))
-      : null
-  );
+export const useCurrenciesData = (setCurrency) => {
+  const [fetchState, setfetchState] = useState("pending");
+  const [currenciesData, setCurrenciesData] = useState({});
 
   useEffect(() => {
     const fetchCurrenciesData = async () => {
-      const response = await fetch(
-        'https://api.exchangerate.host/latest?base=PLN'
-      );
-      const data = await response.json();
-      setCurrenciesData(data);
-      localStorage.setItem("currenciesData", JSON.stringify(data));
+      try {
+        const response = await fetch(
+          'https://api.exchangerate.host/latest?base=PLN'
+        );
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+        setCurrency(Object.keys(data["rates"])[0]);
+        setCurrenciesData(data);
+        setfetchState("resolved");
+      } catch (error) {
+        setfetchState("rejected");
+        console.error(error);
+      }
     };
 
-    if (!currenciesData) {
-      console.log("started fetching");
-      fetchCurrenciesData();
-    }
-  });
+    fetchCurrenciesData();
+  }, [setCurrency]);
 
-  return currenciesData;
+  return [currenciesData, fetchState];
 };

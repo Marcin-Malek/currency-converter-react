@@ -1,9 +1,6 @@
 import { Label, Input } from "./styled";
-import { useCurrenciesData } from "../useCurrenciesData";
 
-const Field = ({ tagType, label, contentPassed, innerRef, amount, inputHandler, selectHandler }) => {
-    const currenciesData = useCurrenciesData();
-    const { rates: currencies } = currenciesData;
+const Field = ({ tagType, label, contentPassed, innerRef, amount, currencies, inputHandler, selectHandler }) => {
     if (tagType === "input") {
         return (
             <>
@@ -29,6 +26,7 @@ const Field = ({ tagType, label, contentPassed, innerRef, amount, inputHandler, 
             <Input
                 as="select"
                 tagType={tagType}
+                currencies={currencies}
                 onChange={selectHandler}
             >
                 {Object.keys(currencies).map(currency => (

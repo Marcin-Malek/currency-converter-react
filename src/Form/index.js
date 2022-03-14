@@ -4,7 +4,7 @@ import Clock from "../Clock";
 import Info from "../Info";
 import { StyledForm, Fieldset, Header, Button } from "./styled";
 
-const Form = ({ title, result, amount, date, contentPassed, inputRef, onFormSubmit, inputHandler, selectHandler }) => (
+const Form = ({ title, result, amount, date, currencies, contentPassed, inputRef, onFormSubmit, inputHandler, selectHandler }) => (
     <StyledForm onSubmit={onFormSubmit}>
         <Fieldset>
             <Clock />
@@ -20,6 +20,7 @@ const Form = ({ title, result, amount, date, contentPassed, inputRef, onFormSubm
             <Field
                 tagType="select"
                 label="Waluta"
+                currencies={currencies}
                 selectHandler={selectHandler}
             />
             <Button>Przelicz</Button>
