@@ -3,10 +3,12 @@ import { StyledInfo, StyledProgress } from "./styled";
 const Info = ({ date, fetchState }) => {
     if (fetchState === "pending") {
         return (
-            <StyledInfo fetchState={fetchState}>
-                <StyledProgress /> <br/>
-                Chwilka cierpliwości &#128578;. Aktualne kursy walut są pobierane.
-            </StyledInfo>
+            <>
+                <StyledProgress />
+                <StyledInfo fetchState={fetchState}>
+                    Chwilka cierpliwości &#128578;. Aktualne kursy walut są pobierane.
+                </StyledInfo>
+            </>
         )
     } else if (fetchState === "rejected") {
         return <StyledInfo fetchState={fetchState}>Coś poszło nie tak &#128577;. Sprawdź czy masz połączenie z internetem.</StyledInfo>

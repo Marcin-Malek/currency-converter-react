@@ -1,5 +1,4 @@
 import Form from "./Form";
-import Info from "./Info";
 import { useRef, useState } from "react";
 import { useCurrenciesData } from "./useCurrenciesData";
 
@@ -10,10 +9,10 @@ function App() {
   const [contentPassed, setContentPassed] = useState(true);
 
   const inputRef = useRef();
-  
+
   const [currenciesData, fetchState] = useCurrenciesData(setCurrency);
   const { rates: currencies, date } = currenciesData;
-  
+
   const onFormSubmit = (event) => {
     event.preventDefault();
     if (amount !== "") {
@@ -40,26 +39,21 @@ function App() {
   }
 
 
-  if (fetchState === "resolved") {
-    return (
-      <Form
-        title="Kalkulator wymiany walut"
-        result={result}
-        amount={amount}
-        date={date}
-        currencies={currencies}
-        contentPassed={contentPassed}
-        inputRef={inputRef}
-        inputHandler={inputHandler}
-        selectHandler={selectHandler}
-        onFormSubmit={onFormSubmit}
-      />
-    );
-  } else {
-    return (
-      <Info fetchState={fetchState} />
-    )
-  }
+  return (
+    <Form
+      title="Kalkulator wymiany walut"
+      result={result}
+      amount={amount}
+      date={date}
+      currencies={currencies}
+      contentPassed={contentPassed}
+      fetchState={fetchState}
+      inputRef={inputRef}
+      inputHandler={inputHandler}
+      selectHandler={selectHandler}
+      onFormSubmit={onFormSubmit}
+    />
+  );
 };
 
 export default App;
