@@ -18,7 +18,7 @@ export const useCurrenciesData = (setCurrency) => {
         const data = await response.json();
         setCurrency(Object.keys(data["rates"])[0]);
         setCurrenciesData(data);
-        setfetchState("resolved");
+        setTimeout(() => setfetchState("resolved"), 500);
       } catch (error) {
         setfetchState("rejected");
         console.error(error);
