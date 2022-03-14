@@ -10,7 +10,7 @@ export const Input = styled.input`
     width: 60%;
     min-width: 150px;
     flex-basis: 30px;
-    border: 1px solid #1a28ad;
+    border: 1px solid ${({ theme }) => theme.color.PersianBlue};
     border-radius: 4px;
     margin-bottom: 10px;
 
