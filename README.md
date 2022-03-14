@@ -6,18 +6,19 @@ You can check out this page here: https://marcin-malek.github.io/currency-conver
 ## About
 This is currency converter I have created using technologies such as
 
-- CSS (BEM Convention, Normalize.css, Flex)
 - JS (ES6)
-- Git
-- OpenGraph
 - React.js
+- Styled Components
+- OpenGraph
+- Git
 
 ### Functionality
-This page helps user calculate exchange values from PLN to:
+This application allows user to calculate exchange values between PLN and currencies provided by [Exchange rates API](https://exchangerate.host/). Exchange rates are updated daily.
 
-- EUR 
-- USD 
-- GBP
+Capabilities of this application are shortly presented in the animation below:
+
+![Animation](Animation.gif)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
