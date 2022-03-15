@@ -8,7 +8,8 @@ export const useCurrenciesData = (setCurrency) => {
     const fetchCurrenciesData = async () => {
       try {
         const response = await fetch(
-          'https://api.exchangerate.host/latest?base=PLN'
+          'https://api.exchangerate.host/latest?base=PLN',
+          {cache: "no-store"}
         );
 
         if (!response.ok) {
