@@ -8,13 +8,13 @@ import { StyledForm, Fieldset, Header, Button } from "./styled";
 
 const Form = ({ title }) => {
     const [amount, setAmount] = useState("");
-    const [currency, setCurrency] = useState();
+    const [currency, setCurrency] = useState("EUR");
     const [result, setResult] = useState();
     const [contentPassed, setContentPassed] = useState(true);
 
     const inputRef = useRef();
 
-    const [currenciesData, fetchState] = useCurrenciesData(setCurrency);
+    const [currenciesData, fetchState] = useCurrenciesData();
     const { rates: currencies, date } = currenciesData;
 
     const onFormSubmit = (event) => {
@@ -59,6 +59,7 @@ const Form = ({ title }) => {
                     tagType="select"
                     label="Waluta"
                     currencies={currencies}
+                    currency={currency}
                     selectHandler={selectHandler}
                 />
                 <Button>Przelicz</Button>

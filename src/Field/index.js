@@ -1,6 +1,6 @@
 import { Label, Input } from "./styled";
 
-const Field = ({ tagType, label, contentPassed, innerRef, amount, currencies, inputHandler, selectHandler }) => (
+const Field = ({ tagType, label, contentPassed, innerRef, amount, currency, currencies, inputHandler, selectHandler }) => (
     (tagType === "input" && (
         <>
             <Label>{label}:</Label>
@@ -26,10 +26,13 @@ const Field = ({ tagType, label, contentPassed, innerRef, amount, currencies, in
                 as="select"
                 tagType={tagType}
                 currencies={currencies}
+                value={currency}
                 onChange={selectHandler}
             >
                 {Object.keys(currencies).map(currency => (
-                    <option key={currency}>{currency}</option>
+                    <option key={currency}>
+                        {currency}
+                    </option>
                 ))}
             </Input>
         </>

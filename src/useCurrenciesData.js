@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useCurrenciesData = (setCurrency) => {
+export const useCurrenciesData = () => {
   const [fetchState, setfetchState] = useState("pending");
   const [currenciesData, setCurrenciesData] = useState({});
 
@@ -9,7 +9,7 @@ export const useCurrenciesData = (setCurrency) => {
       try {
         const response = await fetch(
           'https://api.exchangerate.host/latest?base=PLN',
-          {cache: "no-store"}
+          /* {cache: "no-store"} */
         );
 
         if (!response.ok) {
@@ -17,7 +17,6 @@ export const useCurrenciesData = (setCurrency) => {
         }
 
         const data = await response.json();
-        setCurrency(Object.keys(data["rates"])[0]);
         setCurrenciesData(data);
         setTimeout(() => setfetchState("resolved"), 500);
       } catch (error) {
@@ -27,7 +26,7 @@ export const useCurrenciesData = (setCurrency) => {
     };
 
     fetchCurrenciesData();
-  }, [setCurrency]);
+  }, []);
 
   return [currenciesData, fetchState];
 };
