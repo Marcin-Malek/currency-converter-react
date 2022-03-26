@@ -83,7 +83,6 @@ const Form = ({ title }) => {
                     <Clock />
                     <Header>{title}</Header>
                     <Info date={date} fetchState={fetchState} />
-                    <Statement result={result} />
                 </Fieldset>
             </StyledForm>
         )
