@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useCurrenciesData } from "../useCurrenciesData";
+import { useCurrenciesData } from "./useCurrenciesData";
 import Info from "./Info";
 import Statement from "./Statement";
 import Clock from "./Clock";
