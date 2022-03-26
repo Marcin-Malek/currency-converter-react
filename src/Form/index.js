@@ -1,10 +1,9 @@
 import { useRef, useState } from "react";
 import { useCurrenciesData } from "../useCurrenciesData";
 import Info from "./Info";
-import Field from "./Field";
 import Statement from "./Statement";
 import Clock from "./Clock";
-import { StyledForm, Fieldset, Header, Button } from "./styled";
+import { StyledForm, Fieldset, Header, Label, Input, Button } from "./styled";
 
 const Form = ({ title }) => {
     const [amount, setAmount] = useState("");
@@ -47,21 +46,31 @@ const Form = ({ title }) => {
             <Fieldset>
                 <Clock />
                 <Header>{title}</Header>
-                <Field
-                    tagType="input"
-                    label="Kwota wpłacona (PLN)"
+                <Label>Kwota wpłacona (PLN):</Label>
+                <Input
+                    value={amount}
+                    ref={inputRef}
                     contentPassed={contentPassed}
-                    innerRef={inputRef}
-                    amount={amount}
-                    inputHandler={inputHandler}
+                    onChange={inputHandler}
+                    type="number"
+                    placeholder="Wpisz kwotę w PLN"
+                    min="0"
+                    step="any"
+                    pattern="[0-9]+([,\.][0-9]+)?"
+                    autoFocus
                 />
-                <Field
-                    tagType="select"
-                    label="Waluta"
-                    currencies={currencies}
-                    currency={currency}
-                    selectHandler={selectHandler}
-                />
+                <Label>Waluta:</Label>
+                <Input
+                    as="select"
+                    value={currency}
+                    onChange={selectHandler}
+                >
+                    {Object.keys(currencies).map(currency => (
+                        <option key={currency}>
+                            {currency}
+                        </option>
+                    ))}
+                </Input>
                 <Button>Przelicz</Button>
                 <Info date={date} fetchState={fetchState} />
                 <Statement result={result} />
