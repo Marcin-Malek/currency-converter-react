@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import { useCurrenciesData } from "../useCurrenciesData";
-import Info from "../Info";
-import Field from "../Field";
-import Statement from "../Statement";
-import Clock from "../Clock";
+import Info from "./Info";
+import Field from "./Field";
+import Statement from "./Statement";
+import Clock from "./Clock";
 import { StyledForm, Fieldset, Header, Button } from "./styled";
 
 const Form = ({ title }) => {
