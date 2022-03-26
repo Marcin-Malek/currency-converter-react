@@ -38,7 +38,7 @@ export const Input = styled.input`
     border-radius: 4px;
     margin-bottom: 10px;
 
-    ${({ contentPassed, tagType }) => (!contentPassed && tagType === "input" ) && css`
+    ${({ contentPassed, type }) => (!contentPassed && type === "number" ) && css`
         &:focus {
             outline-color: red;
         }
