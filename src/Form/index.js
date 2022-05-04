@@ -9,7 +9,7 @@ const Form = ({ title }) => {
     const [amount, setAmount] = useState("");
     const [currency, setCurrency] = useState("EUR");
     const [result, setResult] = useState();
-    const [contentPassed, setContentPassed] = useState(true);
+    const [validInput, setValidInput] = useState(true);
 
     const inputRef = useRef();
 
@@ -26,9 +26,7 @@ const Form = ({ title }) => {
                     calculatedAmount: Number(amount) * currencies[currency]
                 }
             );
-            setContentPassed(true);
-        } else {
-            setContentPassed(false);
+            setValidInput(true);
         }
         inputRef.current.focus();
     }
@@ -50,13 +48,15 @@ const Form = ({ title }) => {
                 <Input
                     value={amount}
                     ref={inputRef}
-                    contentPassed={contentPassed}
+                    validInput={validInput}
                     onChange={inputHandler}
+                    onInvalid={() => setValidInput(false)}
                     type="number"
                     placeholder="Wpisz kwotę w PLN"
                     min="0"
                     step="any"
                     pattern="[0-9]+([,\.][0-9]+)?"
+                    required
                     autoFocus
                 />
                 <Label>Waluta:</Label>
@@ -85,7 +85,7 @@ const Form = ({ title }) => {
                     <Info date={date} fetchState={fetchState} />
                 </Fieldset>
             </StyledForm>
-        )
+        );
 };
 
 export default Form;

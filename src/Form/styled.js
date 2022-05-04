@@ -38,8 +38,8 @@ export const Input = styled.input`
     border-radius: 4px;
     margin-bottom: 10px;
 
-    ${({ contentPassed, type }) => (!contentPassed && type === "number" ) && css`
-        &:focus {
+    ${({ validInput, type }) => (!validInput && type === "number") && css`
+        &:invalid {
             outline-color: red;
         }
     `}
